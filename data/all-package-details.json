@@ -1,0 +1,30 @@
+[
+    {
+        "plan_type": "Mobile",
+        "user_type": "Postpaid",
+        "plan_name": "Advanced Mobile Plan",
+        "plan_description": "The Advanced Mobile Postpaid Plan is only 10 Sri Lanka Rupees. You get unlimited browsing, hotspot up to 12 GB and 70 minutes on your Hutch line",
+        "price": "10 Sri Lanka Rupees"
+    },
+    {
+        "plan_type": "Mobile",
+        "user_type": "Postpaid",
+        "plan_name": "Initial Mobile Plan",
+        "plan_description": "The Initial Mobile Postpaid Plan is only 6 Sri Lanka Rupees. You get unlimited browsing, hotspot up to 6 GB and 50 minutes on your Hutch line",
+        "price": "6 Sri Lanka Rupees"
+    },
+    {
+        "plan_type": "Internet + Mobile",
+        "user_type": "Postpaid",
+        "plan_name": "Hutch Initial Plus plan",
+        "plan_description": "The Hutch Initial Plus Plan is 15 Sri Lanka Rupees. It gives you 150 Mbps internet with a WiFi modem, 20 mobile minutes, and unlimited browsing on your phone",
+        "price": "15 Sri Lanka Rupees"
+    },
+    {
+        "plan_type": "Internet + Mobile",
+        "user_type": "Postpaid",
+        "plan_name": "Hutch Lite Plus Plan",
+        "plan_description": "Hutch Lite Plus Plan for 8 Sri Lanka Rupees. With that one you get 100 Mbps internet with a WiFi modem, 10 GB of mobile data, and unlimited WhatsApp",
+        "price": "8 Sri Lanka Rupees"
+    }
+]

@@ -1,0 +1,22 @@
+services:
+  agent:
+    build: .
+    container_name: gemini-lk-agent
+    env_file:
+      - .env.local
+    restart: unless-stopped
+    # Mounting the current directory allows for live code changes if the app supports it,
+    # though with Docker containers it's often better to rebuild or use a proper watch mode.
+    # We exclude .venv to avoid host/guest conflicts.
+    volumes:
+      - .:/app
+      - /app/.venv
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  default:
+    name: gemini-lk-network
