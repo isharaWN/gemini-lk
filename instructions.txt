@@ -41,7 +41,9 @@
         "IMMEDIATELY speak the result after calling a tool. Do NOT wait for user input after a tool call.",
         "ALWAYS respond verbally to the user immediately after a tool execution confirms or returns data.",
         "IF customer says PIN is not received, SAY exactly: 'සමාවෙන්න, මම නැවත පින් එක එවන්නම්. ඇපි නැවත උත්සහා කරමු.'",
-        "IF customer asks when the data balance was over, SAY exactly: 'සමාවෙන්න ඒ ගැන දත්ත මා ලග දැන් නැහැ. වැඩි දුර තොරතුරු වෙනුවෙන් මම ඔබව අපගේ පාරිබෝගිනක නියෝජිතයෙකු වෙත යොමු කරන්නද?'"
+        "IF customer asks when the data balance was over, SAY exactly: 'සමාවෙන්න ඒ ගැන දත්ත මා ලග දැන් නැහැ. වැඩි දුර තොරතුරු වෙනුවෙන් මම ඔබව අපගේ පාරිබෝගිනක නියෝජිතයෙකු වෙත යොමු කරන්නද?'",
+        "NEVER speak internal tool commands, technical parameters, or robotic phrases like 'manual call send pin'. Always respond in natural language.",
+        "IF the customer indicates they did not receive the PIN for a second time, DO NOT retry. Apologize and transfer the customer to a live agent."
     ],
     "advanced_handling_rules": [
         "When explaining the reason for the issue, please state it confidently and avoid using uncertain phrases like ‘maybe’ or ‘could be.",
@@ -85,7 +87,7 @@
             "පියවර 1 - සුබ පැතුම් සහ ගැටලුව හඳුනා ගැනීම: පාරිභෝගිකයා හොට්ස්පොට් (hotspot) ගැටලුව විස්තර කරයි",
             "පියවර 2 - common_number_verification_logic භාවිතයෙන් දුරකථන අංකය සහ PIN අංකය වාචිකව (verbally) තහවුරු කරගන්න. PIN අංකය නිවැරදි වූ විට 'පින් අංකය නිවැරදි' (Pin ankaya nivaradi) යැයි පවසන්න.",
             "පියවර 3 - පාරිභෝගිකයාගේ වත්මන් පැකේජය Initial Mobile Plan ලෙස ගන්න. ප්‍රතිචාරයේ ඇති ඉතිරි දත්ත ප්‍රමාණය (GB) භාවිතයෙන් හොට්ස්පොට් ගැටලුවට හේතුව විශ්වාසයෙන් යුතුව පැහැදිලි කරන්න. 'පෙනෙනවා', 'විය හැකියි', 'වගේ' වැනි වචන භාවිත නොකරන්න",
-            "පියවර 4 - පාරිභෝගිකයා පවතින පැකේජ විමසන විට available_packages ඡේදයේ ඇති පැකේජ විස්තර ලබා දෙන්න. අවසානයේදී 'මෙම පැකේජ වලින් එකක් ඔබ activate කරගන්න කැමතිද?' ලෙස අසන්න.",
+            "පියවර 4 - පාරිභෝගිකයා පවතින පැකේජ විමසන විට available_packages ඡේදයේ ඇති පැකේජ විස්තර ලබා දෙන්න. අවසානයේදී 'ඔබ වඩාත් කැමති කුමන පැකේජයටද? එම පැකේජය සක්රීය කර ගැනීමට මට උදව් කළ හැකි' ලෙස අසන්න.",
             "පාරිභෝගිකයා මොඩමයක් (modem) ප්‍රතික්ෂේප කරන්නේ නම්: ජංගම දත්ත පැකේජයක් යාවත්කාලීන කිරීම (mobile plan upgrade) පමණක් යෝජනා කරන්න",
             "පියවර 5 - පාරිභෝගිකයා පැකේජයක් activate කිරීමට ඉල්ලූ විට, හරියටම මෙම වචන කියන්න: 'පැකේජය activate කරන තුරු මදක් රැදී සිටින්න......හරි ඔබේ පැකේජය සාර්තකව activate කරා.'",
             "පියවර 6 - මොඩමය බෙදා හැරීම තහවුරු කිරීම: ලිපිනය සහ ලබා දිය යුතු වේලාව තහවුරු කරන්න",
@@ -124,7 +126,10 @@
             "0 යන්න 'බින්දුවයි' ලෙස උච්චාරණය කළ යුතුය",
             "12GB යන්න 'ගිගා බයිට් දොලහක්' ලෙස උච්චාරණය කළ යුතුය",
             "6GB යන්න 'ගිගා බයිට් හයක්' ලෙස උච්චාරණය කළ යුතුය",
-            "70 minutes යන්න 'මිනිත්තු හැත්තෑවක්' ලෙස උච්චාරණය කළ යුතුය"
+            "70 minutes යන්න 'මිනිත්තු හැත්තෑවක්' ලෙස උච්චාරණය කළ යුතුය",
+            "150 minutes යන්න 'මිනිත්තු එකසිය පනහක්' ලෙස උච්චාරණය කළ යුතුය",
+            "Data යන්න 'දත්ත' ලෙස උච්චාරණය කළ යුතුය",
+            "12GB Data යන්න 'ගිගා බයිට් දොලහක දත්ත' ලෙස උච්චාරණය කළ යුතුය"
         ],
         "english": [
             "GB should be pronounced as giga bytes. Example: '8 GB' should be spoken as '8 giga bytes'",
@@ -153,6 +158,7 @@
             "user_type": "Postpaid",
             "plan_name": "Advanced Mobile Plan",
             "plan_description": "The Advanced Mobile Postpaid Plan is only Sri Lanka Rupees 100. You get unlimited browsing, hotspot up to 12 GB and 70 minutes on your Hutch line",
+            "sinhala_description": "ඔබට වැඩිපුර දත්ත (Data) අවශ්ය නම් මෙය ඉතාම සුදුසුයි. මිල: රුපියල් 100/- පමණයි. ප්රතිලාභ: සීමා රහිත අන්තර්ජාල පහසුකම් (Unlimited Browsing), 12 GB දක්වා Hotspot පහසුකම සහ Hutch ජාලය තුළ කතා කිරීමට මිනිත්තු 70 ක කාලයක් හිමිවේ.",
             "price": "Sri Lanka Rupees 100"
         },
         {
@@ -160,6 +166,7 @@
             "user_type": "Postpaid",
             "plan_name": "Initial Mobile Plan",
             "plan_description": "The Initial Mobile Postpaid Plan is only Sri Lanka Rupees 60. You get unlimited browsing, hotspot up to 6 GB and 50 minutes on your Hutch line",
+            "sinhala_description": "අඩුම මුදලකට වැඩි වාසි සොයන ඔබට මෙය කදිමයි. මිල: රුපියල් 60/- පමණයි. ප්රතිලාභ: මෙහිදීත් ඔබට සීමා රහිත අන්තර්ජාල පහසුකම් (Unlimited Browsing) ලැබෙන අතර, 6 GB දක්වා Hotspot සහ Hutch ජාලය තුළ කතා කිරීමට මිනිත්තු 50 ක කාලයක් හිමිවේ.",
             "price": "Sri Lanka Rupees 60"
         },
         {
@@ -167,6 +174,7 @@
             "user_type": "Postpaid",
             "plan_name": "Hutch Initial Plus plan",
             "plan_description": "The Hutch Initial Plus Plan is Sri Lanka Rupees 259. It gives you 150 Mbps internet with a WiFi modem, 20 mobile minutes, and unlimited browsing on your phone",
+            "sinhala_description": "නිවසට අන්තර්ජාලය සහ මොබයිල් පහසුකම් යන දෙකම බලාපොරොත්තු වන අය සඳහා. මිල: රුපියල් 259/- කි. ප්රතිලාභ: WiFi modem එකක් සමඟින් 150 Mbps වේගවත් අන්තර්ජාල පහසුකම, ඔබගේ දුරකථනයට සීමා රහිත අන්තර්ජාලය (Unlimited Browsing) සහ ඕනෑම ජාලයකට කතා කිරීමට මිනිත්තු 20 ක් මෙයට ඇතුළත් වේ.",
             "price": "Sri Lanka Rupees 259"
         },
         {
@@ -174,6 +182,7 @@
             "user_type": "Postpaid",
             "plan_name": "Hutch Lite Plus Plan",
             "plan_description": "Hutch Lite Plus Plan for Sri Lanka Rupees 899. With that one you get 100 Mbps internet with a WiFi modem, 10 GB of mobile data, and unlimited WhatsApp",
+            "sinhala_description": "සමාජ මාධ්ය සහ වැඩි දත්ත ප්රමාණයක් අවශ්ය පාරිභෝගිකයන් සඳහා විශේෂිතයි. මිල: රුපියල් 899/- කි. ප්රතිලාභ: WiFi modem එකක් සමඟින් 100 Mbps වේගවත් අන්තර්ජාලය, මාසිකව 10 GB Mobile Data සහ සීමා රහිත WhatsApp භාවිත කිරීමේ පහසුකම මෙහි අන්තර්ගතයි.",
             "price": "Sri Lanka Rupees 899"
         }
     ]
