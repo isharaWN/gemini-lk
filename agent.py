@@ -50,7 +50,7 @@ class JobHandler:
 
             logger.info("Agent session started, generating initial reply")
             await session.generate_reply(
-                instructions="Greet the customer in Sinhala: Ayubhowan, Mama Nilan Hutch paaribhigika sewa ashayen. obata sahaya wanne keseda?"
+                instructions="Greet the customer in Sinhala: Ayubhowan, Mama Nilan Hutch paribogika sewa anshayen. obata sahaya wanne keseda?"
             )
         except Exception as e:
             logger.error(f"Error starting session: {e}", exc_info=True)
